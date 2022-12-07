@@ -1,0 +1,11 @@
+FROM ubuntu
+RUN apt update -y
+RUN touch file{1..5}.txt
+RUN echo "Hi this is my first file written using Docker file" >file1.txt
+RUN mkdir devop
+CMD [ "yum","install","apache2","-y"]
+COPY index.html /var/www/html/
+CMD [ "/usr/sbin/apachectl","-D","FOREGROUND"]
+ADD https://github.com/AbhishekThings?tab=repositories devop
+
+ 
